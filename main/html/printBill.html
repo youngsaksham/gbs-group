@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.B.S Group</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body{
+            background: url("https://r1.ilikewallpaper.net/ipad-air-wallpapers/download/27909/Rainbow-Color-Soft-Gradation-Blur-ipad-air-wallpaper-ilikewallpaper_com_1024.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<center>
+<body>
+    <div class="container">
+        <fieldset>
+            <h2>Bill</h2>
+            <table border="1" >
+                <thead>
+                    <tr><th>Menu</th><th>Price</th><th>Quantity</th><th>Amout</th></tr>
+                </thead>
+                <tbody id="bill">
+                    <!-- <tr><td>katora</td><td>Rs. 10</td><td>1</td><td>10x1 = 10</td></tr> -->
+                </tbody>
+
+                
+
+            </table>
+            </fieldset>
+        <center><h1>Total Amout: Rs. <span id="amount">0</span></h1></center>
+
+            
+    </div>
+        <center><button id="insert2" class="insert2"> genarate bill </button></center>
+
+    <script>
+var AllNamkin = 51,redKatora = 310, smallKatora = 310, katora = 310, abcd = 310, plan = 310, pipe = 310 , extraF = 310;
+var AllNamkin_q=0,smallKatora_q=0,redKatora_q=0,katora_q=0, abcd_q=0, plan_q=0, pipe_q=0, extraF_q=0;
+var name = "", adress="";
+var AllNamkinBill="",smallKatoraBill="", redKatoraBill="", katoraBill="",abcdBill="",planBill="",pipeBill="",extraFBill="";
+var total_amount=0;
+var AllNamkinB = 51,redKatoraB = 310, smallKatoraB = 310, katoraB = 310, abcdB = 310, planB = 310, pipeB = 310 , extraFB = 310;
+
+if(katoraB.value==""||katoraB.value==0){
+    katoraBill="";
+    katora_q=0;
+    showBill();
+}else{
+    katora_q=katoraB.value;
+    katoraBill="<tr><td>katora</td><td>Rs. "+katora+"</td><td>"+katora_q+"</td><td>"+katora+"x"+katora_q+" = "+katora*katora_q+"</td></tr>";
+    showBill();
+}
+
+if(smallKatoraB.value==""||smallKatoraB.value==0){
+    smallKatoraBill="";
+    smallKatora_q=0;
+    showBill();
+}else{
+    smallKatora_q=smallKatoraB.value;
+    smallKatoraBill="<tr><td>Small Katora</td><td>Rs. "+smallKatora+"</td><td>"+smallKatora_q+"</td><td>"+smallKatora+"x"+smallKatora_q+" = "+smallKatora*smallKatora_q+"</td></tr>";
+    showBill();
+}
+
+
+if(redKatoraB.value==""||redKatoraB.value==0){
+    redKatoraBill="";
+    redKatora_q=0;
+    showBill();
+}else{
+    redKatora_q=redKatoraB.value;
+    redKatoraBill="<tr><td>Red Katora</td><td>Rs. "+redKatora+"</td><td>"+redKatora_q+"</td><td>"+redKatora+"x"+redKatora_q+" = "+redKatora*redKatora_q+"</td></tr>";
+    showBill();
+}
+
+
+if(abcdB.value==""||abcdB.value==0){
+    abcdBill="";
+    abcd_q=0;
+    showBill();
+
+}else{
+    abcd_q=abcdB.value;
+    abcdBill="<tr><td>abcd</td><td>Rs. "+abcd+"</td><td>"+abcd_q+"</td><td>"+abcd+"x"+abcd_q+" = "+abcd*abcd_q+"</td></tr>";
+    showBill();
+}
+
+
+if(planB.value==""||planB.value==0){
+    planBill="";
+    plan_q=0;
+    showBill();
+
+}else{
+    plan_q=planB.value;
+    planBill="<tr><td>plan</td><td>Rs. "+plan+"</td><td>"+plan_q+"</td><td>"+plan+"x"+plan_q+" = "+plan*plan_q+"</td></tr>";
+    showBill();
+}
+
+
+if(pipeB.value==""||pipeB.value==0){
+    pipeBill="";
+    pipe_q=0;
+    showBill();
+
+}else{
+    pipe_q=pipeB.value;
+    pipeBill="<tr><td>pipe</td><td>Rs. "+pipe+"</td><td>"+pipe_q+"</td><td>"+plan+"x"+pipe_q+" = "+pipe*pipe_q+"</td></tr>";
+    showBill();
+}
+
+
+if(extraFB.value==""||extraFB.value==0){
+    extraFBill="";
+    extraF_q=0;
+    showBill();
+
+}else{
+    extraF_q=extraFB.value;
+    extraFBill="<tr><td>Extra Frimes</td><td>Rs. "+extraF+"</td><td>"+extraF_q+"</td><td>"+plan+"x"+extraF_q+" = "+extraF*extraF_q+"</td></tr>";
+    showBill();
+}
+
+
+if(AllNamkinB.value==""||AllNamkinB.value==0){
+    AllNamkinBill="";
+    AllNamkin_q=0;
+    showBill();
+
+}else{
+    AllNamkin_q=AllNamkinB.value;
+    AllNamkinBill="<tr><td>Namkin</td><td>Rs. "+AllNamkin+"</td><td>"+AllNamkin_q+"</td><td>"+AllNamkin+"x"+AllNamkin_q+" = "+AllNamkin*AllNamkin_q+"</td></tr>";
+    showBill();
+}
+
+
+
+function showBill(){
+    document.getElementById("bill").innerHTML=katoraBill+abcdBill+planBill+pipeBill+redKatoraBill+smallKatoraBill+extraFBill+AllNamkinBill; //table statement
+    document.getElementById("amount").innerHTML = katora*katora_q+abcd*abcd_q+plan*plan_q+pipe*pipe_q+redKatora*redKatora_q+smallKatora*smallKatora_q+extraF*extraF_q+AllNamkin*AllNamkin_q; // total amount
+}    
+
+document.getElementById("insert2").onclick = function(){
+    window.print();
+    alert("Print Succsess fully")
+}
+
+    </script>
+</body>
+</center>
+</html>

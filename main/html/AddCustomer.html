@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.B.S Group</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body{
+            background: url("https://r1.ilikewallpaper.net/ipad-air-wallpapers/download/27909/Rainbow-Color-Soft-Gradation-Blur-ipad-air-wallpaper-ilikewallpaper_com_1024.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            text-align: center;
+        }
+        .insert {
+          padding: 15px 25px;
+          font-size: 24px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #fff;
+          background-color: #04AA6D;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px #999;
+        }
+        
+        .insert:hover {background-color: #3e8e41}
+        
+        .insert:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
+        .back {
+  position: relative;
+  background-color: #04AA6D;
+  border: none;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 100px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.back:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.back:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+        </style>
+        
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDYXGxvLP2DaJ5PNpraTIBvFdXN33x_bd4",
+    authDomain: "the-gbs-group-bf8be.firebaseapp.com",
+    databaseURL: "https://the-gbs-group-bf8be-default-rtdb.firebaseio.com",
+    projectId: "the-gbs-group-bf8be",
+    storageBucket: "the-gbs-group-bf8be.appspot.com",
+    messagingSenderId: "119042490845",
+    appId: "1:119042490845:web:c470f5b6466531ab217634",
+    measurementId: "G-49ZTY3L0JH"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<a href="../index.html"><button class="back" id="back">Back</button></a>
+    <center>
+    <h1>G.B.S Group </h1>
+<div class="container-fluid">
+    <div class="container">
+        <div class="part1">
+            <fieldset>
+  <h2>Customer Information</h2>
+  <p>Full Name:</p><input id="PlanBox" type="text"></input> <br><br/>
+
+<p>Adress:</p><input type="text" id="adress2"></input>
+            </fieldset>
+        </div>
+
+
+        <div class="part2">
+            <fieldset>
+                <h2>Customer Orders</h2>
+                <fieldset>
+                    <h3>
+                        Frimes
+                    </h3>
+              <p>  Katora (Rs. 310):</p> <input type="number" id="katora"> <br><br/>
+              <p> Small Katora (Rs. 310):</p> <input type="number" id="smallKatora"> <br><br/>
+              <p> Red Katora (Rs. 310):</p> <input type="number" id="redKatora"> <br><br/>
+              <p>  ABCD (Rs. 310):</p> <input type="number" id="abcd"><br><br/>
+              <p>  PLAN (Rs. 310):</p> <input type="number" id="plan"><br><br/>
+              <p>  Pipe (Rs. 310):</p> <input type="number" id="pipe"><br><br/>
+              <p>  Extra (Rs. 310):</p> <input type="number" id="extraF"> <br><br/>
+            </fieldset>
+            <fieldset>
+                <h3>
+                    Namkins
+                </h3>
+          <p> AllNamkin (Rs.51):</p> <input type="number" id="AllNamkin"> <br><br/>
+        </fieldset>
+        </fieldset>
+        </div>
+        
+    </div>
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .print-container, .print-container * {
+            visibility: visible;
+        }
+
+        .print-container {
+            visibility: visible;
+  position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    }
+</style>
+    <div class="container print-container">
+        <fieldset>
+            <h2>Bill</h2>
+            <table border="1" >
+                <thead>
+                    <tr><th>Menu</th><th>Price</th><th>Quantity</th><th>Amout</th></tr>
+                </thead>
+                <tbody id="bill">
+                    <!-- <tr><td>katora</td><td>Rs. 10</td><td>1</td><td>10x1 = 10</td></tr> -->
+                </tbody>
+
+                
+
+            </table>
+            </fieldset>
+        <center><h1>Total Amout: Rs. <span id="amount">0</span></h1></center>
+
+            
+    </div>
+ <center><button id="insert" class="insert"> showBill </button></center>
+
+</div>
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .print-container, .print-container * {
+            visibility: visible;
+        }
+
+        .print-container {
+            visibility: visible;
+  position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    }
+</style>
+<div class="pri">
+<script>
+var AllNamkin = 51,redKatora = 310, smallKatora = 310, katora = 310, abcd = 310, plan = 310, pipe = 310 , extraF = 310;
+var AllNamkin_q=0,smallKatora_q=0,redKatora_q=0,katora_q=0, abcd_q=0, plan_q=0, pipe_q=0, extraF_q=0;
+var name = "", adress="";
+var AllNamkinBill="",smallKatoraBill="", redKatoraBill="", katoraBill="",abcdBill="",planBill="",pipeBill="",extraFBill="";
+var total_amount=0;
+const dbRef = firebase.database().ref();
+var PlanBox_q=0;
+var adress2_q=0;
+var total_Amount;
+var AllNamkinStock,redKatoraStock, smallKatoraStock, katoraStock, abcdStock, planStock, pipeStock;
+var somsingh = 1;
+var katoraTotalStock;
+var abcdTotalStock;
+var planTotalStock;
+var pipeTotalStock;
+var redKatoraTotalStock;
+var smallKatoraTotalStock;
+var AllNamkinTotalStock;
+
+document.getElementById("adress2").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+//    adress2Bill="";
+    adress2_q=0;
+  //  showBill();
+}else{
+    adress2_q=this.value;
+//adress2Bill="<tr><td>katora</td><td>Rs. "+katora+"</td><td>"+katora_q+"</td><td>"+katora+"x"+katora_q+" = "+katora*katora_q+"</td></tr>";
+//showBill();
+console.log(adress2_q);
+}});
+
+document.getElementById("PlanBox").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+//    PlanBoxBill="";
+    PlanBox_q=0;
+  //  showBill();
+}else{
+    PlanBox_q=this.value;
+//    PlanBoxBill="<tr><td>katora</td><td>Rs. "+katora+"</td><td>"+katora_q+"</td><td>"+katora+"x"+katora_q+" = "+katora*katora_q+"</td></tr>";
+//    showBill();
+console.log(PlanBox_q);
+}});
+
+document.getElementById("katora").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    katoraBill="";
+    katora_q=0;
+    showBill();
+}else{
+    katora_q=this.value;
+    katoraBill="<tr><td>katora</td><td>Rs. "+katora+"</td><td>"+katora_q+"</td><td>"+katora+"x"+katora_q+" = "+katora*katora_q+"</td></tr>";
+    showBill();
+}});
+
+document.getElementById("smallKatora").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    smallKatoraBill="";
+    smallKatora_q=0;
+    showBill();
+}else{
+    smallKatora_q=this.value;
+    smallKatoraBill="<tr><td>Small Katora</td><td>Rs. "+smallKatora+"</td><td>"+smallKatora_q+"</td><td>"+smallKatora+"x"+smallKatora_q+" = "+smallKatora*smallKatora_q+"</td></tr>";
+    showBill();
+}});
+
+
+document.getElementById("redKatora").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    redKatoraBill="";
+    redKatora_q=0;
+    showBill();
+}else{
+    redKatora_q=this.value;
+    redKatoraBill="<tr><td>Red Katora</td><td>Rs. "+redKatora+"</td><td>"+redKatora_q+"</td><td>"+redKatora+"x"+redKatora_q+" = "+redKatora*redKatora_q+"</td></tr>";
+    showBill();
+}});
+
+
+document.getElementById("abcd").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    abcdBill="";
+    abcd_q=0;
+    showBill();
+
+}else{
+    abcd_q=this.value;
+    abcdBill="<tr><td>abcd</td><td>Rs. "+abcd+"</td><td>"+abcd_q+"</td><td>"+abcd+"x"+abcd_q+" = "+abcd*abcd_q+"</td></tr>";
+    showBill();
+}});
+
+document.getElementById("plan").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    planBill="";
+    plan_q=0;
+    showBill();
+
+}else{
+    plan_q=this.value;
+    planBill="<tr><td>plan</td><td>Rs. "+plan+"</td><td>"+plan_q+"</td><td>"+plan+"x"+plan_q+" = "+plan*plan_q+"</td></tr>";
+    showBill();
+}});
+
+document.getElementById("pipe").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    pipeBill="";
+    pipe_q=0;
+    showBill();
+
+}else{
+    pipe_q=this.value;
+    pipeBill="<tr><td>pipe</td><td>Rs. "+pipe+"</td><td>"+pipe_q+"</td><td>"+plan+"x"+pipe_q+" = "+pipe*pipe_q+"</td></tr>";
+    showBill();
+}
+});
+
+document.getElementById("extraF").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    extraFBill="";
+    extraF_q=0;
+    showBill();
+
+}else{
+    extraF_q=this.value;
+    extraFBill="<tr><td>Extra Frimes</td><td>Rs. "+extraF+"</td><td>"+extraF_q+"</td><td>"+plan+"x"+extraF_q+" = "+extraF*extraF_q+"</td></tr>";
+    showBill();
+}
+});
+document.getElementById("AllNamkin").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    AllNamkinBill="";
+    AllNamkin_q=0;
+    showBill();
+
+}else{
+    AllNamkin_q=this.value;
+    AllNamkinBill="<tr><td>Namkin</td><td>Rs. "+AllNamkin+"</td><td>"+AllNamkin_q+"</td><td>"+AllNamkin+"x"+AllNamkin_q+" = "+AllNamkin*AllNamkin_q+"</td></tr>";
+    showBill();
+}
+});
+
+function showBill(){
+    document.getElementById("bill").innerHTML=katoraBill+abcdBill+planBill+pipeBill+redKatoraBill+smallKatoraBill+extraFBill+AllNamkinBill; //table statement
+    document.getElementById("amount").innerHTML = katora*katora_q+abcd*abcd_q+plan*plan_q+pipe*pipe_q+redKatora*redKatora_q+smallKatora*smallKatora_q+extraF*extraF_q+AllNamkin*AllNamkin_q; // total amount
+    total_Amount = katora*katora_q+abcd*abcd_q+plan*plan_q+pipe*pipe_q+redKatora*redKatora_q+smallKatora*smallKatora_q+extraF*extraF_q+AllNamkin*AllNamkin_q;
+}
+
+function geeky(){
+    showBill();
+    alert(total_Amount);
+    window.print();
+    alert(dbRef)
+        const borrowerRef = dbRef.child("avadh/"+PlanBox_q+"_"+adress2_q+"/");
+        alert("hii")
+		borrowerRef.set({
+            name:PlanBox_q,
+            adress:adress2_q,
+            katora:katora_q,
+            abcd:abcd_q,
+            plan:plan_q,
+            pipe:pipe_q,
+            redKatora:redKatora_q,
+            smallKatora:smallKatora_q,
+            extraFrimes:extraF_q,
+            AllNamkin:AllNamkin_q,
+            totalAmount : total_Amount
+	});
+
+     
+    firebase.database().ref("stock/").on('value',function(snapshot){
+katoraStock = snapshot.val().katora
+abcdStock = snapshot.val().abcd
+planStock = snapshot.val().plan
+pipeStock = snapshot.val().pipe   
+redKatoraStock = snapshot.val().redKatora
+smallKatoraStock = snapshot.val().smallKatora
+AllNamkinStock = snapshot.val().AllNamkin
+
+katoraTotalStock = katoraStock-katora_q;
+abcdTotalStock = abcdStock-abcd_q;
+planTotalStock = planStock-plan_q;
+pipeTotalStock = pipeStock-pipe_q;
+redKatoraTotalStock = redKatoraStock-redKatora_q;
+smallKatoraTotalStock = smallKatoraStock-smallKatora_q;
+AllNamkinTotalStock = AllNamkinStock-AllNamkin_q;
+
+alert("going to main page");
+open("../index.html"); 
+
+console.log(AllNamkinStock,redKatoraStock,smallKatoraStock,katoraStock,abcdStock,planStock,pipeStock)
+const borrowerRef2 = dbRef.child("stock/");
+
+borrowerRef2.set({
+            katora:katoraTotalStock,
+            abcd:abcdTotalStock,
+            plan:planTotalStock,
+            pipe:pipeTotalStock,
+            redKatora:redKatoraTotalStock,
+            smallKatora:smallKatoraTotalStock,
+            AllNamkin:AllNamkinTotalStock
+	});
+window.location.href = "#saksham";
+});
+
+}
+
+ document.getElementById("insert").onclick = function(){
+geeky(); 
+}  
+ 
+</script>
+</div>
+</center>
+</body>
+</html>

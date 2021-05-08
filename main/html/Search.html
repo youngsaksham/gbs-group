@@ -1,0 +1,208 @@
+<html>
+
+<head>
+    <title>Customer</title>
+    <link rel="stylesheet" href="../css/myProfile2.css">
+  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+</head>
+<style>
+    body {
+        padding: 0px;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+     #header {
+        background-color: #16a085;
+        color: #fff;
+    }
+    table {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-collapse: collapse;
+        width: 1000px;
+        height: 200px;
+        border: 1px solid #bdc3c7;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    tr {
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+    
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+   
+    
+    h1 {
+        font-weight: 600;
+        text-align: center;
+        background-color: #16a085;
+        color: #fff;
+        padding: 10px 0px;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+   /* @media only screen and (max-width: 768px) {*/
+        table {
+            width: 90%;
+        }
+    /*}*/
+</style>
+<body>
+    <h1>Customer</h1>
+    <a href="../index.html"><button class="btn btn3">Back</button></a>  
+    <section>
+<table class="content-table">
+    <tr id="header">
+        <th>SN.</th>
+        <th>Name</th>
+        <th>Adress</th>
+        <th>Katora</th>
+        <th>ABCD</th>
+        <th>Plan</th>
+        <th>Pipe</th>
+        <th>RedKatora</th>
+        <th>SmallKatora</th>
+        <th>ExtraFrimes</th>
+        <th>AllNamkin</th>
+        <th>totalAmount</th>
+    </tr>
+    <tbody id="tbody1">
+
+    </tbody>
+</table>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+
+        </div>
+ 
+</table>
+
+</section>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDYXGxvLP2DaJ5PNpraTIBvFdXN33x_bd4",
+    authDomain: "the-gbs-group-bf8be.firebaseapp.com",
+    databaseURL: "https://the-gbs-group-bf8be-default-rtdb.firebaseio.com",
+    projectId: "the-gbs-group-bf8be",
+    storageBucket: "the-gbs-group-bf8be.appspot.com",
+    messagingSenderId: "119042490845",
+    appId: "1:119042490845:web:c470f5b6466531ab217634",
+    measurementId: "G-49ZTY3L0JH"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+                   function SelectAllData(){
+ 
+     firebase.database().ref("avadh/").once('value', 
+                    function(AllRecords){
+                        AllRecords.forEach(
+                            function(CurrentRecord){
+                        var name = CurrentRecord.val().name;
+                        var adress = CurrentRecord.val().adress;
+                        var katora = CurrentRecord.val().katora;
+                        var abcd = CurrentRecord.val().abcd;
+                        var plan = CurrentRecord.val().plan;
+                        var pipe = CurrentRecord.val().pipe;
+                        var redKatora = CurrentRecord.val().redKatora;
+                        var smallKatora = CurrentRecord.val().smallKatora;
+                        var extraFrimes = CurrentRecord.val().extraFrimes;
+                        var AllNamkin = CurrentRecord.val().AllNamkin;
+                        var totalAmount = CurrentRecord.val().totalAmount;
+                      
+                        AddItemsToTable(name,adress,katora,abcd,plan,pipe,redKatora,smallKatora,extraFrimes,AllNamkin,totalAmount);
+                        
+                        });
+                    });
+            };
+            
+
+                window.onload = SelectAllData;
+
+                var firstNameS = 0;
+                function AddItemsToTable(name,adress,katora,abcd,plan,pipe,redKatora,smallKatora,extraFrimes,AllNamkin,totalAmount){
+                    var tbody = document.getElementById('tbody1');
+                    var trow = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var td6 = document.createElement('td');
+                    var td7 = document.createElement('td');
+                    var td8 = document.createElement('td');
+                    var td9 = document.createElement('td');
+                    var td10 = document.createElement('td');
+                    var td11 = document.createElement('td');
+                    var td12 = document.createElement('td');
+
+                    td1.innerHTML= ++firstNameS;
+                    td2.innerHTML=name;
+                    td3.innerHTML=adress;
+                    td4.innerHTML=katora;
+                    td5.innerHTML=abcd;
+                    td6.innerHTML=plan;
+                    td7.innerHTML=pipe;
+                    td8.innerHTML=redKatora;
+                    td9.innerHTML=smallKatora;
+                    td10.innerHTML=extraFrimes;
+                    td11.innerHTML=AllNamkin;
+                    td12.innerHTML=totalAmount;
+
+                    trow.appendChild(td1);
+                    trow.appendChild(td2);
+                    trow.appendChild(td3);
+                    trow.appendChild(td4);
+                    trow.appendChild(td5);
+                    trow.appendChild(td6);
+                    trow.appendChild(td7);
+                    trow.appendChild(td8);
+                    trow.appendChild(td9);
+                    trow.appendChild(td10);
+                    trow.appendChild(td11);
+                    trow.appendChild(td12);
+                    tbody.appendChild(trow);
+                }
+
+                </script>
+
+  
+  <script>
+    // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+      $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+        }).resize();
+        </script>
+   
+    </body>
+ </html>

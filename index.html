@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lan="en" and dir="Itr">
+<head>
+    <meta charset="utf-8">
+    <title>GBS Group Login</title>
+    <link rel="stylesheet" href="./main/css/style2.css">
+    <script src ="./main/js/login2.js"> </script>
+
+
+
+</head>
+<body>
+<form class="box">
+
+<h1>
+    login
+</h1>
+<input type="text" name="" placeholder="Enter Username" id="username">
+<input type="password" name="" placeholder="Enter Password" id="password">
+<input type="submit" name="" value="Login" id="login">
+
+<script>
+   document.getElementById("login").onclick = function(){
+
+var username=document.getElementById("username").value;
+var password=document.getElementById("password").value;
+if(username=="group"&& password=="1234")
+{
+ 
+   alert("login succesfully");
+    open("./main/index.html");
+    alert(window.location.href ="./main/index.html")
+
+}
+else
+{
+    window.location.href ="#";
+    alert("login failed");
+}
+
+};
+
+</script>
+
+</form>
+
+
+</body>
+
+
+
+</html>
